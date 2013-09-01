@@ -1,13 +1,13 @@
 {
   "name": "ember-i18n",
-  "version": "1.5.0",
-  "description": "I18n support for Ember.js",
+  "version": "2.0.0pre",
+  "description": "Internationalization for Ember",
   "main": [ "lib/i18n.js" ],
   "dependencies": {
     "cldr": "~1.0",
     "jquery": "~1.7",
     "handlebars": "~1.0",
-    "ember": ">0.9.7 <1.1"
+    "ember": "~1.0"
   },
   "scripts": {
     "test": "rake"

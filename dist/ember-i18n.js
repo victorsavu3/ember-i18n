@@ -239,12 +239,13 @@
   CLDR.pluralForm.Other = Other;
 
 }(this));
-(function(window) {
+(function() {
   var I18n, assert, findTemplate, get, set, isBinding, lookupKey, pluralForm,
       keyExists;
 
   get = Ember.Handlebars.get;
   set = Ember.set;
+  assert = Ember.assert;
   pluralForm = CLDR.pluralForm;
 
   function warn(msg) { Ember.Logger.warn(msg); }
@@ -261,8 +262,6 @@
       if (hash) { return lookupKey(remainingKeys, hash); }
     }
   };
-
-  assert = Ember.assert != null ? Ember.assert : window.ember_assert;
 
   findTemplate = function(key, setOnMissing) {
     assert("You must provide a translation key string, not %@".fmt(key), typeof key === 'string');
@@ -421,5 +420,5 @@
     return new Handlebars.SafeString(result.join(' '));
   });
 
-}).call(undefined, this);
+}).call(undefined);
 }());

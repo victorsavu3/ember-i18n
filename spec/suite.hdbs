@@ -2,14 +2,20 @@
   <head>
     <meta charset="utf-8">
     <script src="../vendor/jquery-{{jQueryVersion}}.js"></script>
-    <script src="../vendor/handlebars-1.0.0-rc.3.js"></script>
+    <script src="../vendor/handlebars-{{handlebarsVersion}}.js"></script>
     <script src="../vendor/ember-{{emberVersion}}.js"></script>
+    {{#if withoutHandlebars}}
+      <script>
+        Ember.ENV.I18N_COMPILE_WITHOUT_HANDLEBARS = {{withoutHandlebars}};
+      </script>
+    {{/if}}
     <script src="../vendor/cldr-1.0.0.js"></script>
     <script src="../lib/i18n.js"></script>
     <link rel="stylesheet" href="../node_modules/mocha-phantomjs/node_modules/mocha/mocha.css" />
   </head>
   <body>
     <div id="mocha"></div>
+    <script src="../node_modules/sinon/pkg/sinon-1.10.3.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script src="../node_modules/mocha-phantomjs/node_modules/mocha/mocha.js"></script>
     <script>
@@ -17,7 +23,16 @@
       mocha.ui('bdd');
       mocha.reporter('html');
     </script>
+    <script src="./spec_support.js"></script>
     <script src="./i18nSpec.js"></script>
+    <script src="./translationExistsSpec.js"></script>
+    <script src="./tSpec.js"></script>
+    <script src="./translateHelperSpec.js"></script>
+    <script src="./taglessTranslateHelperSpec.js"></script>
+    <script src="./translateAttributeHelperSpec.js"></script>
+    <script src="./eachTranslatedAttributeSpec.js"></script>
+    <script src="./translateablePropertiesSpec.js"></script>
+    <script src="./translateableAttributesSpec.js"></script>
     <script>
       if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
       else { mocha.run(); }
